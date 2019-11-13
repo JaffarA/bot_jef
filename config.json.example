@@ -1,0 +1,5 @@
+{
+    "default_prefix": "!",
+    "discord_token": "<your discord token>",
+    "youtube_token": "<your youtube api key>"
+}

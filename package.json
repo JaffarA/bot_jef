@@ -1,0 +1,44 @@
+{
+  "name": "bot_jef",
+  "version": "1.0.0",
+  "description": "a simple discord bot with voice/music functionality",
+  "main": "index.js",
+  "repository": "git@github.com:JaffarA/bot_jef.git",
+  "author": "Jaffar Almaleki <jaffar.almaleki@gmail.com>",
+  "license": "MIT",
+  "prettier": {
+    "trailingComma": "es5",
+    "useTabs": false,
+    "tabWidth": 2,
+    "singleQuote": false
+  },
+  "dependencies": {
+    "@types/jsonfile": "^5.0.0",
+    "bufferutil": "^4.0.1",
+    "discord.js": "^11.5.1",
+    "erlpack": "discordapp/erlpack",
+    "json": "^9.0.6",
+    "jsonfile": "^5.0.0",
+    "libsodium-wrappers": "^0.7.6",
+    "node-opus": "^0.3.3",
+    "tslint": "^5.20.1",
+    "youtube-search": "^1.1.4",
+    "ytdl-core": "^1.0.0",
+    "zucc": "^0.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.5",
+    "prettier": "^1.18.2",
+    "typescript": "^3.6.4"
+  },
+  "engines": {
+    "node": "^12.12.5",
+    "yarn": "^1.19.1"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/tsc",
+    "main": "node src/main",
+    "watch": "./node_modules/.bin/tsc --watch",
+    "format": "./node_modules/.bin/prettier src/*.ts --write"
+  }
+}
