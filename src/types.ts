@@ -1,5 +1,5 @@
 export interface User {
-  id: number;
+  id: string;
   blocked: boolean;
   line: number;
 }
@@ -7,8 +7,8 @@ export interface User {
 export type Users = User[];
 
 export interface Server {
-  id: number;
-  bot_channel: number;
+  id: string;
+  bot_channel: string;
   anywhere_mode: boolean;
   use_default_prefix: boolean;
   prefix: string;
@@ -16,13 +16,14 @@ export interface Server {
 }
 
 export interface GuildServer {
-  id: number;
-  bot_channel: number;
+  id: string;
+  bot_channel: string;
   anywhere_mode: boolean;
   use_default_prefix: boolean;
   prefix: string;
   line: number;
 
+  update(): boolean;
   usesDefaultPrefix(): boolean;
   usesBotChannel(): boolean;
 }

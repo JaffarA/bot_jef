@@ -16,7 +16,7 @@ export function getUsers() {
   const users: Users = [];
   rawData.forEach((e, i) => {
     const user: User = {
-      id: parseInt(e[0]),
+      id: e[0],
       blocked: e[1] === "true" ? true : false,
       line: i,
     };
@@ -26,7 +26,7 @@ export function getUsers() {
   return users;
 }
 
-function findUserById(id: number) {
+function findUserById(id: string) {
   const users: Users = getUsers();
   return users.find(user => user.id === id);
 }

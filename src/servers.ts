@@ -2,9 +2,9 @@ import { GuildServer, Servers, Server } from "./types";
 import { loadCsv, writeCsv } from "./csv";
 const filepath = "./data/servers.csv";
 
-class Guild implements GuildServer {
-  id: number;
-  bot_channel: number;
+export class Guild implements GuildServer {
+  id: string;
+  bot_channel: string;
   anywhere_mode: boolean;
   use_default_prefix: boolean;
   prefix: string;
@@ -19,6 +19,10 @@ class Guild implements GuildServer {
     this.line = server.line;
   }
 
+  update() {
+    return updateServer(this);
+  }
+
   usesDefaultPrefix() {
     return this.use_default_prefix;
   }
@@ -28,7 +32,7 @@ class Guild implements GuildServer {
   }
 }
 
-function updateServer(server: Server) {
+function updateServer(server: Server): boolean {
   const line: number = server.line;
   const string: string = [
     server.id,
@@ -38,6 +42,7 @@ function updateServer(server: Server) {
     server.prefix,
   ].join(",");
   writeCsv(filepath, line, string);
+  return true;
 }
 
 export function getServers() {
@@ -48,8 +53,8 @@ export function getServers() {
   const servers: Servers = [];
   rawData.forEach((e, i) => {
     const server: Server = {
-      id: parseInt(e[0]),
-      bot_channel: parseInt(e[1]),
+      id: e[0],
+      bot_channel: e[1],
       anywhere_mode: e[2] === "true" ? true : false,
       use_default_prefix: e[3] === "true" ? true : false,
       prefix: e[4],
@@ -61,11 +66,19 @@ export function getServers() {
   return servers;
 }
 
-function findServerById(id: number) {
+function findServerById(id: string) {
   const servers: Servers = getServers();
   return servers.find(server => server.id === id);
 }
 
-export function serverExists(id: number) {
+export function lastLine(): number {
+  let line = 1;
+  if (getServers().length > 0) {
+    line += getServers().pop().line;
+  }
+  return line;
+}
+
+export function serverExists(id: string) {
   return findServerById(id) ? true : false;
 }
