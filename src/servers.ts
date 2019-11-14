@@ -65,3 +65,7 @@ function findServerById(id: number) {
   const servers: Servers = getServers();
   return servers.find(server => server.id === id);
 }
+
+export function serverExists(id: number) {
+  return findServerById(id) ? true : false;
+}

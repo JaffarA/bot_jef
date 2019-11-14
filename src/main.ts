@@ -1,14 +1,19 @@
 import { getDefaultPrefix, getYoutubeToken, getDiscordToken } from "./config";
 import { getServers } from "./servers";
 import { getUsers } from "./users";
-const Discord = require("discord.js");
-const client = new Discord.Client();
-const servers = getServers();
+import { handleMessage } from "./messageHandler"
+import { Client, Message } from "discord.js"
+const client = new Client();
+let servers = getServers();
 
 client.on("ready", () => {
   console.log(`
   I've connected! 💻😁
   `);
+});
+
+client.on("message", (msg: Message) => {
+  handleMessage(msg);
 });
 
 console.log(`

@@ -27,7 +27,7 @@
     "zucc": "^0.1.2"
   },
   "devDependencies": {
-    "@types/node": "^12.12.5",
+    "@types/node": "^12.12.7",
     "prettier": "^1.18.2",
     "typescript": "^3.6.4"
   },
