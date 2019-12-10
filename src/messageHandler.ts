@@ -9,18 +9,19 @@ import {
 } from "discord.js";
 import { getDefaultPrefix } from "./config";
 import { stringify } from "querystring";
+import { isValidYoutube } from "./youtube";
 
-function stripPrefix(text: String) {
+function stripPrefix(text: string) {
   return text.startsWith(getDefaultPrefix())
     ? text.slice(getDefaultPrefix().length)
     : text;
 }
 
-function splitMessageIntoArgs(text: String) {
+function splitMessageIntoArgs(text: string) {
   return text.split(/ +/);
 }
 
-function getCommand(text: String) {
+function getCommand(text: string) {
   if (text.startsWith(getDefaultPrefix())) {
     return splitMessageIntoArgs(stripPrefix(text)).shift();
   } else {
@@ -28,7 +29,7 @@ function getCommand(text: String) {
   }
 }
 
-function getArgs(text: String) {
+function getArgs(text: string) {
   if (text.startsWith(getDefaultPrefix())) {
     return splitMessageIntoArgs(stripPrefix(text)).slice(1);
   } else {
@@ -75,6 +76,10 @@ Arguments : ${args}
 
   if (command === "hello") {
     message.reply("Hi! 😃")
+  } else if (command === "play" || command === "p") {
+    const valid = isValidYoutube(args[0])
+  } else if (command === "skip" || command === "s") {
+    console.log('skip')
   } else {
     message.reply(`\n**Unrecognized command.**`);
   }
