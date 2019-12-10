@@ -1,6 +1,5 @@
 import { validateID, validateURL } from "ytdl-core";
 import { ytsr } from "ytsr";
-import { getYoutubeToken } from "./config";
 
 export function isValidYoutube(input: string) {
   if (input.startsWith("http")) {
