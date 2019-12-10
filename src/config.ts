@@ -12,10 +12,6 @@ export function getDefaultPrefix() {
   return loadConfig().default_prefix;
 }
 
-export function getYoutubeToken() {
-  return loadConfig().youtube_token;
-}
-
 export function getDiscordToken() {
   return loadConfig().discord_token;
 }
