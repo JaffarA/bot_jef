@@ -74,7 +74,10 @@ function findServerById(id: string) {
 export function lastLine(): number {
   let line = 1;
   if (getServers().length > 0) {
+    // @ts-ignore
     line += getServers().pop().line;
+  } else {
+    line = 0;
   }
   return line;
 }

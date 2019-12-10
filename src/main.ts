@@ -19,7 +19,7 @@ client.on("ready", () => {
 });
 
 client.on("message", (msg: Message) => {
-  handleMessage(msg);
+  handleMessage(msg, client);
 });
 
 console.log(`
