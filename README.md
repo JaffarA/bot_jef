@@ -6,7 +6,7 @@
 - install node from https://yarnpkg.com/en/docs/install
 - install ffmpeg from https://www.ffmpeg.org/download.html
 - run `yarn`
-- setup config file at config.json.example
+- setup config file using `config.json.example` as an example
 
 ## Running
 
