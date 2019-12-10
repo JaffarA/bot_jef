@@ -1,4 +1,4 @@
-import { getDefaultPrefix, getYoutubeToken, getDiscordToken } from "./config";
+import { getDefaultPrefix, getDiscordToken } from "./config";
 import { getServers } from "./servers";
 import { getUsers } from "./users";
 import { handleMessage } from "./messageHandler";
@@ -27,7 +27,6 @@ console.log(`
 
   Default Prefix  : "${getDefaultPrefix()}"
   Discord Token   : "${getDiscordToken()}"
-  Youtube Token   : "${getYoutubeToken()}"
 
   I'm starting the discord client, hang on... 💻😎
 `);

@@ -9,7 +9,7 @@ import {
 } from "discord.js";
 import { getDefaultPrefix } from "./config";
 import { stringify } from "querystring";
-import { isValidYoutube } from "./youtube";
+import { isValidYoutube, getVideoInfo } from "./youtube";
 
 function stripPrefix(text: string) {
   return text.startsWith(getDefaultPrefix())
@@ -78,6 +78,7 @@ Arguments : ${args}
     message.reply("Hi! 😃")
   } else if (command === "play" || command === "p") {
     const valid = isValidYoutube(args[0])
+    getVideoInfo(args[0])
   } else if (command === "skip" || command === "s") {
     console.log('skip')
   } else {
